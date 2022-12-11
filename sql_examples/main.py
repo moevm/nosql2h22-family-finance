@@ -2,7 +2,6 @@ import psycopg2
 from config import host, user, password, db_name
 
 try:
-    # connect to exist database
     connection = psycopg2.connect(
         host=host,
         user=user,
