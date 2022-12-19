@@ -1,5 +1,7 @@
 import datetime
 import json
+
+import icecream
 from bson import json_util, ObjectId
 from flask import request, Response
 
@@ -23,9 +25,11 @@ def get_user(object_id):
     return Response(status=200, response=json_util.dumps(response), content_type='application/json')
 
 
-@app.route('/auth_user', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def auth_user():
-    pass
+    data = json.loads(request.data)
+    response = database_helper.check_user(login=data.get('login'), password=data.get('password'))
+    return Response(status=200, response=json_util.dumps(response), content_type='application/json')
 
 
 @app.route('/balance', methods=['POST'])
@@ -69,3 +73,18 @@ def create_transaction():
 def detail_transaction(object_id):
     return Response(status=200, response=json_util.dumps(database_helper.get_transaction_by_id(object_id)),
                     content_type="application/json")
+
+
+@app.route('/users', methods=["GET"])
+def get_users():
+    return Response(status=200, response=json_util.dumps(database_helper.list_users()))
+
+
+@app.route('/balances', methods=["GET"])
+def get_balances_all():
+    return Response(status=200, response=json_util.dumps(database_helper.list_balances()))
+
+
+@app.route('/transactions', methods=["GET"])
+def get_transactions():
+    return Response(status=200, response=json_util.dumps(database_helper.all_transactions()))

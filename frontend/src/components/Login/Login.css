@@ -1,0 +1,67 @@
+.container-login {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    width: 350px;
+    height: 100vh;
+    /*outline: dashed 1px black;*/
+    /* Setup */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    /*background: rgb(0,0,0);*/
+    /*background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(45,201,253,1));*/
+}
+
+
+.container-login > * {
+    margin: 5px;
+}
+
+.card-login > * {
+    margin: 5px;
+}
+.check-login {
+    width: initial;
+}
+
+.card-login {
+    width: 400px;
+    min-height: 400px;
+    height: auto;
+    overflow: hidden;
+    margin: 2rem;
+    padding: 2rem;
+    font-family: Raleway, sans-serif;
+    color: #f8f8f9;
+    background: rgba(224, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    /*border: 1px solid rgba(255, 255, 255, 0.3);*/
+}
+.card-login h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1.5rem 0;
+    text-shadow: 0px 0px 2px rgba(255,255,255,0.7);
+}
+
+.card-login {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.input-login {
+    color: #272727;
+}
+
+/* From https://css.glass */

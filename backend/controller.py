@@ -18,6 +18,12 @@ class DbHelper:
     def user_retrieve(self, pk, *args, **kwargs):
         return self.user.find_one({"_id": ObjectId(pk)})
 
+    def check_user(self, login, password):
+        return self.user.find_one({
+            "login": login,
+            "password": password
+        })
+
     def create_balance(self, user_id, is_family):
         balance_id = self.family.insert_one({
             "balance": Decimal128(str(0)),
@@ -115,4 +121,13 @@ class DbHelper:
         return self.transaction.find_one({
             "_id": ObjectId(transaction_id)
         })
+
+    def list_users(self):
+        return [user for user in self.user.find({})]
+
+    def list_balances(self):
+        return [balance for balance in self.family.find({})]
+
+    def all_transactions(self):
+        return [transaction for transaction in self.transaction.find({})]
 
